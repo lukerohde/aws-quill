@@ -14,7 +14,12 @@ make publish POST=$ARGUMENTS
 After publishing:
 1. Show the updated frontmatter
 2. Remind them to check `title:` and `description:` are set (the script adds placeholders)
-3. Ask: "Ready to deploy? Run `make deploy` or `git push` to trigger CI."
+3. Commit the frontmatter change immediately — regardless of whether they deploy now:
+   ```bash
+   git add posts/<slug>.md
+   git commit -m "publish: <title>"
+   ```
+4. Ask: "Ready to deploy? Run `make deploy` or `git push` to trigger CI."
 
 If they say deploy now:
 ```bash
