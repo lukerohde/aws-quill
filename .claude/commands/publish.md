@@ -19,11 +19,11 @@ After publishing:
    git add posts/<slug>.md
    git commit -m "publish: <title>"
    ```
-4. Ask: "Ready to deploy? Run `make deploy` or `git push` to trigger CI."
+4. Ask: "Ready to go live? I can push to trigger CI."
 
-If they say deploy now:
+If they say yes:
 ```bash
-make deploy
+git push
 ```
 
 Show the live URL when done: `https://<their-domain>/blog/<slug>`
