@@ -491,17 +491,26 @@ order: 1
 One sentence description.
 ```
 
----
-
-## Step 12 — First deploy and verification
-
+**After adding any initial content**, commit and push so it's saved and deploys:
 ```bash
-make deploy
+git add public/avatar.jpg ideas/ projects/ posts/
+git commit -m "content: add initial avatar, ideas, and projects"
+git push
 ```
 
-This builds the Astro site and syncs to S3.
+Only run this if at least one piece of content was added — skip if the user deferred everything.
 
-Then tell them:
+---
+
+## Step 12 — Verify CI is deploying
+
+The `git push` in Step 10 already triggered GitHub Actions. Show them where to watch:
+
+```
+CI is running: https://github.com/<GITHUB_OWNER>/<REPO_NAME>/actions
+```
+
+Wait for the "Deploy Site" workflow to go green. Then tell them:
 
 ```
 Your blog is deployed! Here's what to check:
@@ -529,10 +538,9 @@ Summarise what was built, then show the ongoing workflow:
 ✅  Your blog is live at https://<DOMAIN>
 
 Day-to-day blogging:
-  make draft IDEA=<your-idea>    — start a new post
-  make publish POST=<slug>       — mark it ready
-  make deploy                    — push to S3
-  git push                       — CI deploys automatically
+  /draft IDEA=<your-idea>        — start a new post
+  /publish POST=<slug>           — mark it ready
+  git push                       — CI deploys automatically (preferred)
 
 To add a new app at <subdomain>.<DOMAIN>:
   /new-spa
